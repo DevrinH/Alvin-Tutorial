@@ -1,6 +1,6 @@
-let age = prompt("How old are you?",);
+let myname = prompt("Whats your name?","");
 
-alert(`you are ${age} years old!`);
+alert(`Hello ${myname}!`);
 
 
 
