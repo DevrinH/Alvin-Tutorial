@@ -1,5 +1,6 @@
 let age; 
-window.prompt("How old are you?");
+window.prompt("How old are you?","");
+
 alert(`you are ${age} years old!`);
 
 
