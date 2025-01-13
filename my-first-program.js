@@ -3,7 +3,7 @@ const add = 50;
 let more = 25;
 
 
-let sum = add+more;
+more = 5 + 5;
 
-console.log(sum+7);
+console.log(more);
 
