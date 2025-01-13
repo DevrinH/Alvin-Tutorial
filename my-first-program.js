@@ -1,3 +1,8 @@
+let age = prompt("How old are you?");
+alert("you are ${age} years old!");
+
+
+
 const add = 50;
 
 let more = 25;
