@@ -1,5 +1,6 @@
-let age = prompt("How old are you?");
-alert("you are ${age} years old!");
+let age; 
+window.prompt("How old are you?");
+alert(`you are ${age} years old!`);
 
 
 
