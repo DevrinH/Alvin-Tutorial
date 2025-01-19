@@ -23,3 +23,5 @@ function updateCountdown(){
 }
 }
 import {showScore} from './script';
+
+showScore();
