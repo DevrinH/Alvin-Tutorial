@@ -1,4 +1,3 @@
-import {showScore} from './script'
 
 
 const startingMinutes = 10;
