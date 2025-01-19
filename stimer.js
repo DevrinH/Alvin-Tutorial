@@ -1,4 +1,4 @@
-
+import showScore from './script';
 
 const startingMinutes = 10;
 
@@ -21,10 +21,4 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
         showScore();
 }
-
-
-if (showScore){
-
- return;
-
-}}
+}
