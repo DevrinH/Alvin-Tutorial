@@ -62,6 +62,20 @@ function startQuiz(){
     nextButton.innerHTML = "Next";
     showQuestion();
 }
+function updateCountdown(){
+
+    const minutes = Math.floor(time/60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    const contdownEl = document.getElementById("f1"); 
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+    time--;
+
+    if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
+        clearInterval(refreshIntervalId);
+        
+}
+}
 
 function showQuestion(){
     resetState();
