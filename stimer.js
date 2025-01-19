@@ -1,4 +1,4 @@
-import showScore from './script';
+
 
 const startingMinutes = 10;
 
@@ -7,7 +7,7 @@ const countdownEl = document.getElementById('countdown');
 
 let time = startingMinutes * 60; //minutes * 60 seconds
 let refreshIntervalId = setInterval(updateCountdown, 1000);
-
+import showScore from './script';
 function updateCountdown(){
 
     const minutes = Math.floor(time/60);
