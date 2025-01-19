@@ -19,7 +19,7 @@ function updateCountdown(){
 
     if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
         clearInterval(refreshIntervalId);
-        showScore();
+        
 }
 }
 import {showScore} from './script';
