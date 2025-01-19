@@ -40,9 +40,12 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const countdownEl = document.getElementById('countdown');
 
 let currentQuestionIndex = 0;
 let score = 0;
+let time = startingMinutes * 60; //minutes * 60 seconds
+let refreshIntervalId = setInterval(updateCountdown, 1000);
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -111,26 +114,6 @@ function handleNextButton(){
     }
 }
 
-
-nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
-        handleNextButton();
-    }else{
-        startQuiz();
-    }
-});
-
-
-startQuiz();
-
-const startingMinutes = 1;
-
-
-const countdownEl = document.getElementById('countdown');
-
-let time = startingMinutes * 60; //minutes * 60 seconds
-let refreshIntervalId = setInterval(updateCountdown, 1000);
-
 function updateCountdown(){
 
     const minutes = Math.floor(time/60);
@@ -146,3 +129,21 @@ function updateCountdown(){
 }
 
 }
+nextButton.addEventListener("click", ()=>{
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+    }else{
+        startQuiz();
+    }
+});
+
+
+startQuiz();
+
+const startingMinutes = 1;
+
+
+
+
+
+
