@@ -22,7 +22,7 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
                     }
 
-    if (showScore){
+    if (showScore = true){
         return; 
     }
 };
