@@ -24,3 +24,9 @@ function updateCountdown(){
 }
 
 }
+
+if (showScore){
+
+repeat (time);
+
+}
