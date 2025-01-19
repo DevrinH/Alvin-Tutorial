@@ -22,3 +22,4 @@ function updateCountdown(){
         showScore();
 }
 }
+import {showScore} from './script';
