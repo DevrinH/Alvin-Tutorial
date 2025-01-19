@@ -23,7 +23,7 @@ function updateCountdown(){
                     }
 
     if (showScore = true){
-        return; 
+        time = 0
     }
 };
 
