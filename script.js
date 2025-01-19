@@ -1,3 +1,11 @@
+setTimeout(function() {
+console.log("fuck you")
+
+}, 10000);
+
+
+
+
 const questions = [
     {
         question: "Which is larget animal in the world?",
@@ -40,28 +48,11 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
-const countdownEl = document.getElementById('countdown');
 
 let currentQuestionIndex = 0;
 let score = 0;
-let time = startingMinutes * 60; //minutes * 60 seconds
-let refreshIntervalId = setInterval(updateCountdown, 1000);
 
-function updateCountdown(){
-
-    const minutes = Math.floor(time/60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    const contdownEl = document.getElementById("f1"); 
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
-    time--;
-
-    if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
-        clearInterval(refreshIntervalId);
-        showScore();
-}
-
-}function startQuiz(){
+function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
@@ -139,11 +130,3 @@ nextButton.addEventListener("click", ()=>{
 
 
 startQuiz();
-
-const startingMinutes = 1;
-
-
-
-
-
-
