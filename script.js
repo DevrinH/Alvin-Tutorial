@@ -1,6 +1,6 @@
 setTimeout(function() {
 console.log("fuck you")
-
+showScore()
 }, 10000);
 
 
