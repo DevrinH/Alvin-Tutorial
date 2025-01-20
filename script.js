@@ -133,6 +133,7 @@ export function showScore(){
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
+    return true;
 }
 
 function handleNextButton(){
