@@ -22,7 +22,11 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
                     }
 
-    
+    if (currentQuestionIndex = 4){
+
+        time=0;
+    }
+
 };
 
 updateCountdown();
@@ -149,7 +153,7 @@ function handleNextButton(){
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton();
-        time = 0;
+        
     }else{
         startQuiz();
         
