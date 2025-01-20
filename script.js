@@ -22,9 +22,7 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
                     }
 
-    if (showScore){
-        time = 0
-    }
+    
 };
 
 updateCountdown();
@@ -143,6 +141,7 @@ function handleNextButton(){
         showQuestion();
     }else{
         showScore();
+        time = 0;
     }
 }
 
