@@ -22,10 +22,7 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
                     }
 
-    if (currentQuestionIndex = 4){
 
-        time=0;
-    }
 
 };
 
