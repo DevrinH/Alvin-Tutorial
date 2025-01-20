@@ -149,7 +149,7 @@ function handleNextButton(){
 
 function endtimer(){
     if(currentQuestionIndex === 3){
-        countdownEl.innerHTML = `${minutes} : ${seconds}`;
+        time=0;
     }
 }
 
