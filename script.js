@@ -18,7 +18,7 @@ function updateCountdown(){
     countdownEl.innerHTML = `${minutes} : ${seconds}`;
     time--;
 
-    if (time < 540) { //stop the setInterval whe time = 0 for avoid negative time
+    if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
         clearInterval(refreshIntervalId);
                     }
 
@@ -131,7 +131,7 @@ function selectAnswer(e){
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML = "Play Again";
+    nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     return true;
 }
@@ -153,14 +153,18 @@ function endtimer(){
         console.log("nada")
     }
 }
+function mathlink(){
 
+    location.href = "https://www.google.con";
+
+}
 
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton();
         
     }else{
-        startQuiz();
+        
         
     }
 });
