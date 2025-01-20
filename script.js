@@ -147,9 +147,10 @@ function handleNextButton(){
 }
 
 function endtimer(){
-    if(currentQuestionIndex > questions.length){
-        time=0;
-
+    if(currentQuestionIndex < questions.length){
+        console.log("test still going");
+} else {
+    time=0;
 }
 }
 
