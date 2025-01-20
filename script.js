@@ -22,7 +22,7 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
                     }
 
-    if ((currentQuestionIndex > questions.length)){
+    if (currentQuestionIndex > questions.length){
         time = 0
     }
 };
