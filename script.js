@@ -155,7 +155,7 @@ function endtimer(){
 }
 function mathlink(){
 
-    location.href = "https://www.google.con";
+    location.href = "https://www.google.com";
 
 }
 
