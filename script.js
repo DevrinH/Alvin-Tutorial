@@ -141,7 +141,7 @@ function handleNextButton(){
         showQuestion();
     }else{
         showScore();
-        time = 0;
+        
     }
 }
 
