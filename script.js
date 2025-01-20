@@ -146,6 +146,13 @@ function handleNextButton(){
     }
 }
 
+function endtimer(){
+    if(currentQuestionIndex > questions.length){
+        time=0;
+
+}
+}
+
 
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
