@@ -22,7 +22,7 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
                     }
 
-    if (showScore = true){
+    if (resetState = true){
         time = 0
     }
 };
@@ -107,6 +107,7 @@ function resetState(){
     nextButton.style.display = "none";
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
+        return true;
     }
 }
 
@@ -128,7 +129,7 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-export function showScore(){
+function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = "Play Again";
