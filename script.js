@@ -143,14 +143,14 @@ function handleNextButton(){
     }else{
         showScore();
         endtimer();
-    
+        countdownEl.innerHTML = `${minutes} : ${seconds}`;
     }
 }
 
 function endtimer(){
     if(currentQuestionIndex === 3){
         
-        time=0;
+        console.log("nada")
     }
 }
 
