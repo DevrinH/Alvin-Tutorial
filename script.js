@@ -143,7 +143,7 @@ function handleNextButton(){
     }else{
         showScore();
         endtimer();
-        time=0;
+        
     }
 }
 
