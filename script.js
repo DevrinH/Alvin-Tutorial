@@ -18,7 +18,7 @@ function updateCountdown(){
     countdownEl.innerHTML = `${minutes} : ${seconds}`;
     time--;
 
-    if (time < 9) { //stop the setInterval whe time = 0 for avoid negative time
+    if (time < 540) { //stop the setInterval whe time = 0 for avoid negative time
         clearInterval(refreshIntervalId);
                     }
 
