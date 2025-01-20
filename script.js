@@ -149,9 +149,10 @@ function handleNextButton(){
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton();
+        time = 0;
     }else{
         startQuiz();
-        time = 0;
+        
     }
 });
 
