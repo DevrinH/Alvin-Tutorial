@@ -143,13 +143,13 @@ function handleNextButton(){
     }else{
         showScore();
         endtimer();
-        
+        time=0;
     }
 }
 
 function endtimer(){
     if(currentQuestionIndex === 3){
-        time=0;
+        countdownEl.innerHTML = `${minutes} : ${seconds}`;
     }
 }
 
