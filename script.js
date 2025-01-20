@@ -151,6 +151,7 @@ nextButton.addEventListener("click", ()=>{
         handleNextButton();
     }else{
         startQuiz();
+        time = 0;
     }
 });
 
