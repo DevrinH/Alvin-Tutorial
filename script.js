@@ -143,7 +143,7 @@ function handleNextButton(){
     }else{
         showScore();
         endtimer();
-        countdownEl.innerHTML = `${minutes} : ${seconds}`;
+        time=0;
     }
 }
 
