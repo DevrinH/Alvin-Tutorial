@@ -165,7 +165,7 @@ nextButton.addEventListener("click", ()=>{
         
     }else{
         
-        
+       mathlink(); 
     }
 });
 
