@@ -149,7 +149,7 @@ function handleNextButton(){
 
 function endtimer(){
     if(currentQuestionIndex === 3){
-        time++;
+        time=0;
     }
 }
 
