@@ -1,3 +1,6 @@
+let readScore = localStorage.getItem("readingScore");
+let readingWritingScore = Number(readScore);
+
 setTimeout(function() {
 
     showScore()
@@ -41,12 +44,12 @@ setTimeout(function() {
             ]
         },
         {
-            question: "Which is the smallest country in the world?",
+            question: "5 - 15?",
             answers: [
-                { text: "Vatican City", correct: true},
-                { text: "Bhutan", correct: false},
-                { text: "Nepal", correct: false},
-                { text: "Shri Lanka", correct: false},
+                { text: "10", correct: true},
+                { text: "20", correct: false},
+                { text: "5", correct: false},
+                { text: "15", correct: false},
             ]
         },
         {
@@ -78,7 +81,7 @@ setTimeout(function() {
     
     function startQuiz(){
         currentQuestionIndex = 0;
-        score = 0;
+        mathScore = 0;
         nextButton.innerHTML = "Next";
         showQuestion();
     }
@@ -130,7 +133,7 @@ setTimeout(function() {
     
     function showScore(){
         resetState();
-        questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+        questionElement.innerHTML = `You scored ${mathScore} out of ${questions.length} and your reading writing score was ${readingWritingScore}out of 4!`;
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         return true;
