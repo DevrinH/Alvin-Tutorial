@@ -44,12 +44,12 @@ setTimeout(function() {
             ]
         },
         {
-            question: "Which is the smallest country in the world?",
+            question: "5-15?",
             answers: [
-                { text: "Vatican City", correct: true},
-                { text: "Bhutan", correct: false},
-                { text: "Nepal", correct: false},
-                { text: "Shri Lanka", correct: false},
+                { text: "10", correct: true},
+                { text: "20", correct: false},
+                { text: "-10", correct: false},
+                { text: "-15", correct: false},
             ]
         },
         {
