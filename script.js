@@ -1,9 +1,9 @@
 setTimeout(function() {
 
 showScore()
-}, 602000);
+}, 62000);
 
-const startingMinutes = 10;
+const startingMinutes = 1;
 const countdownEl = document.getElementById('countdown');
 
 let time = startingMinutes * 60; //minutes * 60 seconds
@@ -138,7 +138,7 @@ function showScore(){
 
 function handleNextButton(){
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         showQuestion();
     }else{
         showScore();
@@ -160,14 +160,161 @@ function mathlink(){
 }
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         handleNextButton();
         
     }else{
         
-       mathlink(); 
+        startMathQuiz(); 
     }
 });
 
 
 startQuiz();
+
+
+
+//second part of the test
+    
+    
+    const mathQuestions = [
+        {
+            question: "Which is the smallest animal?",
+            answers: [
+                { text: "Shark", correct: false},
+                { text: "Blue whale", correct: true},
+                { text: "Elephant", correct: false},
+                { text: "Giraffe", correct: false},
+            ]
+        },
+        {
+            question: "what is 5+5?",
+            answers: [
+                { text: "10", correct: true},
+                { text: "7", correct: false},
+                { text: "8", correct: false},
+                { text: "9 ", correct: false},
+            ]
+        },
+        {
+            question: "Which is the largest desert in the world?",
+            answers: [
+                { text: "Kalahari", correct: false},
+                { text: "Gobi", correct: false},
+                { text: "Sahara", correct: false},
+                { text: "Antarctica", correct: true},
+            ]
+        },
+        {
+            question: "Which is the smallest continent in the world?",
+            answers: [
+                { text: "Asia", correct: false},
+                { text: "Australia", correct: true},
+                { text: "Arctic", correct: false},
+                { text: "Africa", correct: false},
+            ]
+        }  
+    ];
+    
+    const questionElementm = document.getElementById("question");
+    const answerButtonsm = document.getElementById("answer-buttons");
+    const nextButtonm = document.getElementById("next-btn");
+    
+    let currentQuestionIndexm = 0;
+    let mathScore = 0;
+    
+    function startMathQuiz(){
+        currentMathQuestionIndex = 0;
+        mathScore = 0;
+        nextButton.innerHTML = "Next";
+        showQuestion();
+    }
+    
+    function showQuestion(){
+        resetState();
+        let currentQuestion = questions[currentQuestionIndexm];
+        let questionNo = currentQuestionIndexm + 1;
+        questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            answerButtons.appendChild(button);
+            if(answer.correct){
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        });
+    }
+    
+    
+    function resetState(){
+        nextButton.style.display = "none";
+        while(answerButtons.firstChild){
+            answerButtons.removeChild(answerButtons.firstChild);
+            
+        }
+    }
+    
+    function selectAnswer(e){
+        const selectedBtn = e.target;
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        if(isCorrect){
+            selectedBtn.classList.add("correct");
+            score++;
+        }else{
+            selectedBtn.classList.add("incorrect");
+        }
+        Array.from(answerButtons.children).forEach(button => {
+            if(button.dataset.correct === "true"){
+                button.classList.add("correct");
+            }
+            button.disabled = true;
+        });
+        nextButton.style.display = "block";
+    }
+    
+    function showScore(){
+        resetState();
+        questionElement.innerHTML = `You scored ${score} and math ${mathScore}out of ${questions.length}!`;
+        nextButton.innerHTML = "Continue";
+        nextButton.style.display = "block";
+        return true;
+    }
+    
+    function handleNextButton(){
+        currentQuestionIndex++;
+        if(currentQuestionIndex < questions.length && time > 0){
+            showQuestion();
+        }else{
+            showScore();
+            endtimer();
+            clearInterval(refreshIntervalId);
+        }
+    }
+    
+    function endtimer(){
+        if(currentQuestionIndex === 3){
+            
+            console.log("nada")
+        }
+    }
+    function mathlink(){
+    
+        location.href = "https://www.google.com";
+    
+    }
+    
+    nextButton.addEventListener("click", ()=>{
+        if(currentQuestionIndex < questions.length && time > 0){
+            handleNextButton();
+            
+        }else{
+            
+           mathlink(); 
+        }
+    });
+    
+    
+    
