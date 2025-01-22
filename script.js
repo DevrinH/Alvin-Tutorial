@@ -217,15 +217,15 @@ startQuiz();
         }  
     ];
     
-    const questionElement = document.getElementById("question");
-    const answerButtons = document.getElementById("answer-buttons");
-    const nextButton = document.getElementById("next-btn");
+    const questionMathElement = document.getElementById("question");
+    const answerMathButtons = document.getElementById("answer-buttons");
+    const nextMathButton = document.getElementById("next-btn");
     
     let currentMathQuestionIndex = 0;
     let mathScore = 0;
     
     function startMathQuiz(){
-        currentQuestionIndex = 0;
+        currentMathQuestionIndex = 0;
         mathScore = 0;
         nextButton.innerHTML = "Next";
         showQuestion();
@@ -234,7 +234,7 @@ startQuiz();
     function showQuestion(){
         resetState();
         let currentMathQuestion = questions[currentMathQuestionIndex];
-        let questionNo = currentQuestionIndex + 1;
+        let questionNo = currentMathQuestionIndex + 1;
         questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
     
         currentQuestion.answers.forEach(answer => {
@@ -285,8 +285,8 @@ startQuiz();
     }
     
     function handleNextButton(){
-        currentQuestionIndex++;
-        if(currentQuestionIndex < questions.length && time > 0){
+        currentMathQuestionIndex++;
+        if(currentMathQuestionIndex < questions.length && time > 0){
             showQuestion();
         }else{
             showScore();
@@ -296,7 +296,7 @@ startQuiz();
     }
     
     function endtimer(){
-        if(currentQuestionIndex === 3){
+        if(currentMathQuestionIndex === 3){
             
             console.log("nada")
         }
@@ -308,7 +308,7 @@ startQuiz();
     }
     
     nextButton.addEventListener("click", ()=>{
-        if(currentQuestionIndex < questions.length && time > 0){
+        if(currentMathQuestionIndex < questions.length && time > 0){
             handleNextButton();
             
         }else{
