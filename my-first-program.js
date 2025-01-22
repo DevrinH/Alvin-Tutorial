@@ -1,3 +1,6 @@
+let readScore = localStorage.getItem("readingScore");
+let readingWritingScore = Number(readScore);
+
 setTimeout(function() {
 
     showScore()
@@ -74,11 +77,11 @@ setTimeout(function() {
     const nextButton = document.getElementById("next-btn");
     
     let currentQuestionIndex = 0;
-    let score = 0;
+    let mathScore = 0;  //score
     
     function startQuiz(){
         currentQuestionIndex = 0;
-        score = 0;
+        mathScore = 0;  //score
         nextButton.innerHTML = "Next";
         showQuestion();
     }
@@ -115,7 +118,7 @@ setTimeout(function() {
         const isCorrect = selectedBtn.dataset.correct === "true";
         if(isCorrect){
             selectedBtn.classList.add("correct");
-            score++;
+            mathScore++; //score
         }else{
             selectedBtn.classList.add("incorrect");
         }
@@ -130,7 +133,7 @@ setTimeout(function() {
     
     function showScore(){
         resetState();
-        questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+        questionElement.innerHTML = `You scored ${mathScore} out of ${questions.length} and your reading score was ${readingWritingScore}!`; //score
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         return true;
@@ -164,7 +167,7 @@ setTimeout(function() {
             handleNextButton();
             
         }else{
-            localStorage.setItem("readingScore", score);
+            
             mathlink(); 
         }
     });
