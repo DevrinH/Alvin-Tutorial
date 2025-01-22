@@ -1,5 +1,3 @@
-
-
 setTimeout(function() {
 
     showScore()
@@ -31,14 +29,15 @@ setTimeout(function() {
     updateCountdown();
     
     
+    
     const questions = [
         {
-            question: "Which is larget animal in the world?",
+            question: "5+5?",
             answers: [
-                { text: "Shark", correct: false},
-                { text: "Blue whale", correct: true},
-                { text: "Elephant", correct: false},
-                { text: "Giraffe", correct: false},
+                { text: "9", correct: false},
+                { text: "10", correct: true},
+                { text: "-5", correct: false},
+                { text: "15", correct: false},
             ]
         },
         {
@@ -75,11 +74,11 @@ setTimeout(function() {
     const nextButton = document.getElementById("next-btn");
     
     let currentQuestionIndex = 0;
-    let mathScore = 0;
+    let score = 0;
     
     function startQuiz(){
         currentQuestionIndex = 0;
-        mathScore = 0;
+        score = 0;
         nextButton.innerHTML = "Next";
         showQuestion();
     }
@@ -131,7 +130,7 @@ setTimeout(function() {
     
     function showScore(){
         resetState();
-        questionElement.innerHTML = `You scored ${mathScore} out of ${questions.length} and your reading writing score was ${readingWritingScore}out of 4!`;
+        questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         return true;
@@ -156,7 +155,7 @@ setTimeout(function() {
     }
     function mathlink(){
     
-        location.href = "https://www.google.com";
+        location.href = "https://devrinh.github.io/Alvin-Tutorial/math.html";
     
     }
     
@@ -165,11 +164,10 @@ setTimeout(function() {
             handleNextButton();
             
         }else{
-            
-           mathlink(); 
+            localStorage.setItem("readingScore", score);
+            mathlink(); 
         }
     });
     
     
     startQuiz();
-    
