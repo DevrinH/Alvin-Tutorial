@@ -32,24 +32,23 @@ setTimeout(function() {
     updateCountdown();
     
     
-    
     const questions = [
         {
-            question: "What is 5 + 5?",
+            question: "Which is larget animal in the world?",
             answers: [
-                { text: "8", correct: false},
-                { text: "10", correct: true},
-                { text: "9", correct: false},
-                { text: "7", correct: false},
+                { text: "Shark", correct: false},
+                { text: "Blue whale", correct: true},
+                { text: "Elephant", correct: false},
+                { text: "Giraffe", correct: false},
             ]
         },
         {
-            question: "5 - 15?",
+            question: "Which is the smallest country in the world?",
             answers: [
-                { text: "10", correct: true},
-                { text: "20", correct: false},
-                { text: "5", correct: false},
-                { text: "15", correct: false},
+                { text: "Vatican City", correct: true},
+                { text: "Bhutan", correct: false},
+                { text: "Nepal", correct: false},
+                { text: "Shri Lanka", correct: false},
             ]
         },
         {
