@@ -1,5 +1,4 @@
-let readScore = localStorage.getItem("readingScore");
-let readingWritingScore = Number(readScore);
+
 
 setTimeout(function() {
 
