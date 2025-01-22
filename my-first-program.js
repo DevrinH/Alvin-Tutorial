@@ -32,12 +32,12 @@ setTimeout(function() {
     
     const questions = [
         {
-            question: "Which is larget animal in the world?",
+            question: "What is 5 + 5?",
             answers: [
-                { text: "Shark", correct: false},
-                { text: "Blue whale", correct: true},
-                { text: "Elephant", correct: false},
-                { text: "Giraffe", correct: false},
+                { text: "8", correct: false},
+                { text: "10", correct: true},
+                { text: "9", correct: false},
+                { text: "7", correct: false},
             ]
         },
         {
@@ -165,9 +165,10 @@ setTimeout(function() {
             
         }else{
             
-            mathlink(); 
+           mathlink(); 
         }
     });
     
     
     startQuiz();
+    

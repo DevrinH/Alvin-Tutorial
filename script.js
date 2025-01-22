@@ -138,7 +138,7 @@ function showScore(){
 
 function handleNextButton(){
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         showQuestion();
     }else{
         showScore();
@@ -155,12 +155,12 @@ function endtimer(){
 }
 function mathlink(){
 
-    location.href = "https://www.google.com";
+    location.href = "https://devrinh.github.io/Alvin-Tutorial/math.html";
 
 }
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         handleNextButton();
         
     }else{
