@@ -69,6 +69,25 @@ const questions = [
     }  
 ];
 
+const explain = [
+    {
+        explanation: "Which is larget animal in the world?",
+      
+    },
+    {
+        explanation: "Which is the smallest country in the world?",
+       
+    },
+    {
+        explanation: "Which is the largest desert in the world?",
+       
+    },
+    {
+        explanation: "Which is the smallest continent in the world?",
+
+    }  
+];
+
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
@@ -119,7 +138,8 @@ function selectAnswer(e){
         selectedBtn.classList.add("correct");
         score++;
     }else{
-        selectedBtn.classList.add("incorrect");   //showExplanation()
+        selectedBtn.classList.add("incorrect"); 
+        showExplanation();                       //showExplanation()
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
