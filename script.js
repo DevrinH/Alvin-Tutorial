@@ -74,7 +74,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
-const explanationElement = document.getElementById("explain"); // explanation
+
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -133,14 +133,6 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-function showExplanation(){
-    resetState();
-    let currentExplanation = explain[currentExplanationIndex];
-    let explanationNo = currentExplanationIndex + 1;
-    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explain;
-
-
-}
 
 function showScore(){
     resetState();
