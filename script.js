@@ -69,16 +69,12 @@ const questions = [
     }  
 ];
 
-
-
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
-
 let currentQuestionIndex = 0;
 let score = 0;
-let currentExplanationIndex = 0; //explanation
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -121,8 +117,7 @@ function selectAnswer(e){
         selectedBtn.classList.add("correct");
         score++;
     }else{
-        selectedBtn.classList.add("incorrect"); 
-        showExplanation();                       //showExplanation()
+        selectedBtn.classList.add("incorrect");
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
@@ -132,7 +127,6 @@ function selectAnswer(e){
     });
     nextButton.style.display = "block";
 }
-
 
 function showScore(){
     resetState();
