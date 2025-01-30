@@ -3,7 +3,7 @@ setTimeout(function() {
 showScore()
 }, 62000);
 
-const startingMinutes = 1;
+const startingMinutes = 10;
 const countdownEl = document.getElementById('countdown');
 
 let time = startingMinutes * 60; //minutes * 60 seconds
