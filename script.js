@@ -95,7 +95,7 @@ const explanationElement = document.getElementById("explain"); // explanation
 
 let currentQuestionIndex = 0;
 let score = 0;
-let currentExplanationIndex = 0, //explanation
+let currentExplanationIndex = 0; //explanation
 
 function startQuiz(){
     currentQuestionIndex = 0;
