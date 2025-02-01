@@ -75,6 +75,7 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let explanationElement = document.getElementById("explanation");
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -118,6 +119,10 @@ function selectAnswer(e){
         score++;
     }else{
         selectedBtn.classList.add("incorrect");
+        explanationElement.textContent = `Incorrect. The correct answer is 42.`;
+    }
+    {
+        explanationElement.style.display = "block";
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
