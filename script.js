@@ -119,12 +119,6 @@ function showQuestion(){
     });
 }
 
-function showExplanation(){
-    resetState();
-    let currentExplanation = explaination[currentExplanationIndex];
-    let explanationNo = currentExplanationIndex + 1;
-    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explaination;
-} // Explanation function
 
 function resetState(){
     nextButton.style.display = "none";
@@ -134,7 +128,12 @@ function resetState(){
     }
 }
 
-
+function showExplanation(){
+    
+    let currentExplanation = explaination[currentExplanationIndex];
+    let explanationNo = currentExplanationIndex + 1;
+    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explaination;
+} // Explanation function
 
 function selectAnswer(e){
     const selectedBtn = e.target;
