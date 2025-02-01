@@ -28,7 +28,24 @@ function updateCountdown(){
 
 updateCountdown();
 
+const explanation = [
+    {
+        explanation: "The whale is the larget animal in the world other than trees",
+      
+    },
+    {
+        explanation: "Which is the smallest country in the world?",
+       
+    },
+    {
+        explanation: "Which is the largest desert in the world?",
+       
+    },
+    {
+        explanation: "Which is the smallest continent in the world?",
 
+    }  
+];
 
 const questions = [
     {
@@ -75,7 +92,7 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
-let explanationElement = document.getElementById("explanation");
+let explanationElement = document.getElementById("explanation"); //explain
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -102,6 +119,12 @@ function showQuestion(){
     });
 }
 
+function showExplanation(){
+    resetState();
+    let currentExplanation = explaination[currentExplanationIndex];
+    let explanationNo = currentExplanationIndex + 1;
+    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explaination;
+} // Explanation function
 
 function resetState(){
     nextButton.style.display = "none";
@@ -111,6 +134,8 @@ function resetState(){
     }
 }
 
+
+
 function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -119,7 +144,7 @@ function selectAnswer(e){
         score++;
     }else{
         selectedBtn.classList.add("incorrect");
-        explanationElement.textContent = `Incorrect. The correct answer is 42.`;
+        explanationElement.textContent = currentExplanationIndex; //explain
     }
     {
         explanationElement.style.display = "block";
