@@ -197,7 +197,7 @@ nextButton.addEventListener("click", ()=>{
         
     }else{
         localStorage.setItem("readingScore", score);
-        mathlink(); 
+        
     }
 });
 
