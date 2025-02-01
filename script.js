@@ -121,12 +121,13 @@ function showQuestion(){
 }
 
 
-function resetState(){
+function resetState() {
     nextButton.style.display = "none";
-    while(answerButtons.firstChild){
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
-        
     }
+    explanationElement.style.display = "none";  // Hide explanation when moving to the next question
+    explanationElement.textContent = "";  // Clear the explanation text
 }
 
 
