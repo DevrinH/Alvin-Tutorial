@@ -136,25 +136,27 @@ function showExplanation(){
     explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explanation;
 } // Explanation function
 
-function selectAnswer(e){
+function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    if(isCorrect){
+    
+    if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
-    }else{
+    } else {
         selectedBtn.classList.add("incorrect");
-        explanationElement.textContent = currentExplanationIndex; //explain
+        explanationElement.textContent = explanation[currentQuestionIndex].explanation; // Fix this line
     }
-    {
-        explanationElement.style.display = "block";
-    }
+    
+    explanationElement.style.display = "block"; // Show explanation
+
     Array.from(answerButtons.children).forEach(button => {
-        if(button.dataset.correct === "true"){
+        if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
         button.disabled = true;
     });
+
     nextButton.style.display = "block";
 }
 
