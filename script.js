@@ -129,12 +129,7 @@ function resetState(){
     }
 }
 
-function showExplanation(){
-    
-    let currentExplanation = explanation[currentExplanationIndex];
-    let explanationNo = currentExplanationIndex + 1;
-    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explanation;
-} // Explanation function
+
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
