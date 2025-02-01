@@ -51,7 +51,7 @@ const questions = [
     {
         question: "Which is larget animal in the world?",
         answers: [
-            { text: "Bart", correct: false},
+            { text: "Homer Simpson", correct: false},
             { text: "Blue whale", correct: true},
             { text: "Elephant", correct: false},
             { text: "Giraffe", correct: false},
