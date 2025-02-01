@@ -1,7 +1,7 @@
 setTimeout(function() {
 
 showScore()
-}, 62000);
+}, 602000);
 
 const startingMinutes = 10;
 const countdownEl = document.getElementById('countdown');
