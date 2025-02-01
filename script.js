@@ -90,6 +90,7 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
+let currentExplanationIndex = 0;
 let currentQuestionIndex = 0;
 let score = 0;
 let explanationElement = document.getElementById("explanation"); //explain
@@ -130,9 +131,9 @@ function resetState(){
 
 function showExplanation(){
     
-    let currentExplanation = explaination[currentExplanationIndex];
+    let currentExplanation = explanation[currentExplanationIndex];
     let explanationNo = currentExplanationIndex + 1;
-    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explaination;
+    explanationElement.innerHTML = explanationNo + ". " + currentExplanation.explanation;
 } // Explanation function
 
 function selectAnswer(e){
