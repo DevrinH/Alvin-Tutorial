@@ -98,7 +98,7 @@ function showScore() {
     const continueButton = document.createElement("button");
     continueButton.innerHTML = "Continue";
     continueButton.classList.add("btn");
-    continueButton.onclick = ranklink;
+    continueButton.onclick = () => location.href = "https://devrinh.github.io/Alvin-Tutorial/sat-rank-landing";
 
     // Display buttons
     answerButtons.appendChild(tryAgainButton);
@@ -130,7 +130,7 @@ nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
-        ranklink();
+        ranklink(); // Ensure this points to the correct URL
     }
 });
 
