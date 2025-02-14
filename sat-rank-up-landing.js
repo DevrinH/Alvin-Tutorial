@@ -117,7 +117,7 @@ function handleNextButton() {
 }
 
 function ranklink() {
-    location.href = "https://www.brainjelli.com/sat-rank-up-landing.html";
+    location.href = "https://devrinh.github.io/Alvin-Tutorial/sat-rank-landing";
 }
 
 function updateProgressBar() {
