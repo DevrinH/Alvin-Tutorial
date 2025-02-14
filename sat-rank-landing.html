@@ -42,6 +42,10 @@
         <!-- LEVEL BUTTONS (Dynamic) -->
         <div id="level-container"></div>
 
+        <!-- RESET PROGRESS BUTTON -->
+        <div class="reset-container">
+            <button id="reset-progress">Reset Progress</button>
+        </div>
     </div>
 
     <script>
@@ -83,6 +87,15 @@
                 container.appendChild(desc);
                 levelContainer.appendChild(container);
             }
+
+            // Reset Progress Functionality
+            document.getElementById("reset-progress").addEventListener("click", function () {
+                if (confirm("Are you sure you want to reset your progress? This cannot be undone!")) {
+                    localStorage.clear(); // Clear all saved levels
+                    localStorage.setItem("level1Unlocked", "true"); // Keep Level 1 unlocked
+                    location.reload(); // Reload the page to update UI
+                }
+            });
         });
     </script>
 
