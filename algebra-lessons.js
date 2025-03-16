@@ -3,15 +3,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
+        startLessonButton.addEventListener('click', function() {
+            const lessonIndex = 0; // Set the lesson index to the first lesson or dynamically set it based on your logic
+            startLesson(lessonIndex);
+        });
         console.log("Start Lesson Button event listener added.");
     } else {
         console.error("Start lesson button not found.");
     }
 
     showScore();
+    displayLessonSelection();
 });
-
 
 const lessons = [
     {
@@ -74,6 +77,7 @@ const lessons = [
 
 let categoryStats = { algebra: { correct: 0, incorrect: 0 } };
 let currentQuestionIndex = 0;
+let currentLesson; // Declare globally
 
 function displayLessonSelection() {
     let lessonSelectionHTML = `<h2>Select a Lesson</h2>`;
@@ -88,19 +92,19 @@ function displayLessonSelection() {
     document.querySelectorAll('.lesson-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             const lessonIndex = parseInt(e.target.getAttribute('data-index'), 10);
-startLesson(lessonIndex);
+            startLesson(lessonIndex);
         });
     });
 }
 
-let currentLesson; // Declare globally
-
 function startLesson(index) {
     currentLesson = lessons[index]; // Store selected lesson
+    if (currentLesson && currentLesson.questions) {
+        showQuiz(); // Start the quiz
+    } else {
+        console.error("Lesson or questions not found.");
+    }
 }
-
-document.addEventListener("DOMContentLoaded", displayLessonSelection);
-
 
 function showExample() {
     document.getElementById('lesson-content').innerHTML = `
@@ -205,7 +209,6 @@ function showNextQuizQuestion() {
     document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question));
 }
 
-
 function checkQuizAnswer(question) {
     const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
     if (selectedAnswer) {
@@ -217,7 +220,7 @@ function checkQuizAnswer(question) {
             categoryStats[question.category].incorrect++;
         }
         currentQuestionIndex++;
-        currentQuestionIndex < mathQuestions.length ? showNextQuizQuestion() : showFinalScore();
+        showNextQuizQuestion();
     } else {
         alert('Please select an answer.');
     }
@@ -243,9 +246,6 @@ function showFinalScore() {
     });
 }
 
-
-//code ended here
-
 function logFinalScore(totalCorrect, totalAttempted) {
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     
@@ -259,47 +259,12 @@ function logFinalScore(totalCorrect, totalAttempted) {
     console.log("Final score logged:", { totalCorrect, totalAttempted, percentage });
 }
 
-
-function showFinalScore() {
-    let totalCorrect = 0;
-    let totalAttempted = 0;
-
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-    }
-
-    logFinalScore(totalCorrect, totalAttempted); // Log the score before redirecting
-
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
-    const finalScoreElement = document.getElementById('final-score');
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = ''; // Clear lesson content
-    finalScoreElement.style.display = 'block';
-    finalScoreElement.innerHTML = `
-        <h2>Final Score</h2>
-        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-        <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
-    `;
-
-    document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
-
-    recordTestResults();
-}
-
-
-
-    // This function is no longer needed as we are grading each question individually
 function gradeQuiz() {
     console.log("Grading quiz");
     let score = 0;
-    let totalQuestions = mathQuestions.length;
+    let totalQuestions = currentLesson.questions.length;
 
-    mathQuestions.forEach((question, index) => {
+    currentLesson.questions.forEach((question, index) => {
         const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
         if (!categoryStats[question.category]) {
             categoryStats[question.category] = { correct: 0, incorrect: 0 };
@@ -323,7 +288,6 @@ function gradeQuiz() {
     localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
     window.location.href = "results.html"; // Redirect to results page
 }
-
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
@@ -369,20 +333,17 @@ function updateDisplayedPercentage(categoryStats) {
     }
 }
 
-function showScore(correct, incorrect) {
-    // Store only the latest quiz results
-    let lastScore = { correct, incorrect };
-
-    // Save last score to localStorage
-    localStorage.setItem("lastQuizScore", JSON.stringify(lastScore));
+function showScore() {
+    // Retrieve last score from localStorage
+    let lastScore = JSON.parse(localStorage.getItem("lastQuizScore")) || { correct: 0, incorrect: 0 };
 
     // Calculate percentage
-    const total = correct + incorrect;
-    const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+    const total = lastScore.correct + lastScore.incorrect;
+    const percentage = total > 0 ? Math.round((lastScore.correct / total) * 100) : 0;
 
     // Update UI if element exists
     const percentageElement = document.getElementById("quiz-percentage");
     if (percentageElement) {
-        percentageElement.textContent = `Correct Answers: ${percentage}% (${correct}/${total})`;
+        percentageElement.textContent = `Correct Answers: ${percentage}% (${lastScore.correct}/${total})`;
     }
 }
