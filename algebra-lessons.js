@@ -31,7 +31,8 @@ const lessons = [
                     { text: "C) 4", correct: false },
                     { text: "D) 5", correct: false }
                 ],
-                explanation: "The correct answer is B) 3. 5x + 3 = 18 -> 5x = 15 -> x = 3."
+                explanation: "The correct answer is B) 3. 5x + 3 = 18 -> 5x = 15 -> x = 3.",
+                category: "algebra"
             },
             {
                 question: "If y = 2x + 1, what is the value of y when x = 3?",
@@ -41,7 +42,8 @@ const lessons = [
                     { text: "C) 7", correct: true },
                     { text: "D) 8", correct: false }
                 ],
-                explanation: "The correct answer is C) 7. y = 2(3) + 1 = 6 + 1 = 7."
+                explanation: "The correct answer is C) 7. y = 2(3) + 1 = 6 + 1 = 7.",
+                category: "algebra"
             }
         ]
     },
@@ -59,7 +61,8 @@ const lessons = [
                     { text: "C) x > 1", correct: false },
                     { text: "D) x < 1", correct: false }
                 ],
-                explanation: "The correct answer is A) x > 4. 2x - 5 > 3 -> 2x > 8 -> x > 4."
+                explanation: "The correct answer is A) x > 4. 2x - 5 > 3 -> 2x > 8 -> x > 4.",
+                category: "algebra"
             },
             {
                 question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
@@ -69,7 +72,8 @@ const lessons = [
                     { text: "C) 9 hours", correct: false },
                     { text: "D) 8 hours", correct: false }
                 ],
-                explanation: "The correct answer is B) 11 hours. The customer has $45 - $12 = $33 left for rental. $33 / $3 per hour = 11 hours."
+                explanation: "The correct answer is B) 11 hours. The customer has $45 - $12 = $33 left for rental. $33 / $3 per hour = 11 hours.",
+                category: "algebra"
             }
         ]
     }
@@ -212,6 +216,9 @@ function showNextQuizQuestion() {
 function checkQuizAnswer(question) {
     const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
     if (selectedAnswer) {
+        if (!categoryStats[question.category]) {
+            categoryStats[question.category] = { correct: 0, incorrect: 0 };
+        }
         if (selectedAnswer.value === "true") {
             alert('Correct!');
             categoryStats[question.category].correct++;
