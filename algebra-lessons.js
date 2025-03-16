@@ -87,20 +87,16 @@ function displayLessonSelection() {
     
     document.querySelectorAll('.lesson-btn').forEach(button => {
         button.addEventListener('click', (e) => {
-            const lessonIndex = e.target.getAttribute('data-index');
-            startLesson(lessonIndex);
+            const lessonIndex = parseInt(e.target.getAttribute('data-index'), 10);
+startLesson(lessonIndex);
         });
     });
 }
 
+let currentLesson; // Declare globally
+
 function startLesson(index) {
     currentLesson = lessons[index]; // Store selected lesson
-    document.getElementById('lesson-content').innerHTML = `
-        <h2>${currentLesson.title}</h2>
-        <p>${currentLesson.description}</p>
-        <button id="start-lesson-btn">Start Lesson</button>
-    `;
-    document.getElementById('start-lesson-btn').addEventListener('click', showExample);
 }
 
 document.addEventListener("DOMContentLoaded", displayLessonSelection);
