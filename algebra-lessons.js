@@ -249,7 +249,7 @@ function showFinalScore() {
         <button id="continue-button">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+        window.location.href = 'https://devrinh.github.io/Alvin-Tutorial/user-profile';
     });
 }
 
