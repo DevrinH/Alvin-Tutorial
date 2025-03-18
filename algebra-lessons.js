@@ -230,7 +230,7 @@ function showFinalScore() {
         <button id="continue-button">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://devrinh.github.io/Alvin-Tutorial/user-profile';
+        window.location.href = 'https://devrinh.github.io/Alvin-Tutorial/user-profile.html';
     });
 }
 
@@ -274,7 +274,8 @@ function gradeQuiz() {
     console.log(`Quiz score: ${percentage}%`);
     
     localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-    window.location.href = "results.html"; // Redirect to results page
+    window.location.href = "    });
+"; // Redirect to results page
 }
 
 function recordTestResults() {
