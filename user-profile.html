@@ -211,8 +211,22 @@
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
                 </div>
                 <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 2</p>
-                    <p>Algebra Lessons</p>
+                    <p class="pbungee">Linear Equations</p>
+                    <p id="score-summary-lesson2"></p>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const finalScore = JSON.parse(localStorage.getItem("finalScore"));
+
+                            if (finalScore) {
+                                document.getElementById("score-summary-lesson2").innerHTML = `
+                                    You answered <strong>${finalScore.correct}</strong> out of <strong>${finalScore.attempted}</strong> questions correctly last time.<br>
+                                    Your score: <strong>${finalScore.percentage}%</strong>
+                                `;
+                            } else {
+                                document.getElementById("score-summary-lesson2").textContent = "No score found. Please complete a quiz first.";
+                            }
+                        });
+                    </script>
                 </div>
             </div>
 
