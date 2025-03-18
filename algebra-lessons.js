@@ -1,17 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', function() {
-            const lessonIndex = 0; // Set the lesson index to the first lesson or dynamically set it based on your logic
-            startLesson(lessonIndex);
-        });
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found.");
-    }
-
     showScore();
 });
 
@@ -335,13 +323,3 @@ function showScore() {
         percentageElement.textContent = `Correct Answers: ${percentage}% (${lastScore.correct}/${total})`;
     }
 }
-
-// Add event listener for the "START" button of the "Linear Equations" lesson
-document.addEventListener("DOMContentLoaded", function() {
-    const linearEquationsButton = document.querySelector(".button-29[onclick*='linear-equations']");
-    if (linearEquationsButton) {
-        linearEquationsButton.addEventListener('click', function() {
-            startLesson(1); // Start the "Linear Equations" lesson
-        });
-    }
-});
