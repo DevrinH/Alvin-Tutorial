@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     showScore();
-    displayLessonSelection();
 });
 
 const lessons = [
@@ -82,24 +81,6 @@ const lessons = [
 let categoryStats = { algebra: { correct: 0, incorrect: 0 } };
 let currentQuestionIndex = 0;
 let currentLesson; // Declare globally
-
-function displayLessonSelection() {
-    let lessonSelectionHTML = `<h2>Select a Lesson</h2>`;
-    lessons.forEach((lesson, index) => {
-        lessonSelectionHTML += `
-            <button class="lesson-btn" data-index="${index}">${lesson.title}</button>
-        `;
-    });
-
-    document.getElementById('lesson-content').innerHTML = lessonSelectionHTML;
-    
-    document.querySelectorAll('.lesson-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const lessonIndex = parseInt(e.target.getAttribute('data-index'), 10);
-            startLesson(lessonIndex);
-        });
-    });
-}
 
 function startLesson(index) {
     currentLesson = lessons[index]; // Store selected lesson
@@ -249,7 +230,7 @@ function showFinalScore() {
         <button id="continue-button">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://devrinh.github.io/Alvin-Tutorial/user-profile';
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
     });
 }
 
