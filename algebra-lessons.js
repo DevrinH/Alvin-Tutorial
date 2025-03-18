@@ -230,7 +230,7 @@ function showFinalScore() {
         <button id="continue-button">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://devrinh.github.io/Alvin-Tutorial/user-profile.html';
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
     });
 }
 
@@ -274,7 +274,7 @@ function gradeQuiz() {
     console.log(`Quiz score: ${percentage}%`);
     
     localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-    window.location.href = "https://devrinh.github.io/Alvin-Tutorial/user-profile.html"; // Redirect to results page
+    window.location.href = "results.html"; // Redirect to results page
 }
 
 function recordTestResults() {
@@ -335,3 +335,13 @@ function showScore() {
         percentageElement.textContent = `Correct Answers: ${percentage}% (${lastScore.correct}/${total})`;
     }
 }
+
+// Add event listener for the "START" button of the "Linear Equations" lesson
+document.addEventListener("DOMContentLoaded", function() {
+    const linearEquationsButton = document.querySelector(".button-29[onclick*='linear-equations']");
+    if (linearEquationsButton) {
+        linearEquationsButton.addEventListener('click', function() {
+            startLesson(1); // Start the "Linear Equations" lesson
+        });
+    }
+});
