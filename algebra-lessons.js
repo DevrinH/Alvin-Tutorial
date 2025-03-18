@@ -274,8 +274,7 @@ function gradeQuiz() {
     console.log(`Quiz score: ${percentage}%`);
     
     localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-    window.location.href = "    });
-"; // Redirect to results page
+    window.location.href = "https://devrinh.github.io/Alvin-Tutorial/user-profile.html"; // Redirect to results page
 }
 
 function recordTestResults() {
